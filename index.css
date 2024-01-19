@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root{
+    --body-backgroundcolor: rgb(255, 255, 255);
+    --color-white: rgba(250, 250, 250);
+    --text-color-second: rgba(38, 37, 37);
+    --first-shadow: rgba(0, 0, 0, 0.1);
+
+    --box-color: #fff;
+    --nav-color: #fff;
+    --nav-icon: #000;
+    --logo-color: #000;
+
+    --text-color: #444444;
+    --color-white: #242526;
+
+    --icon-color: #242526;
+    --mode-color: #ccc;
+}
+
+body{
+    background-color: var(--body-backgroundcolor);
+}
+
+/* dark mode */
+body.dark{
+    --body-backgroundcolor: #080908;
+    --box-color: #fff;
+
+    --nav-color: #262425y;
+    --color-white: #fff;
+    --text-color:  #fff;
+
+    --nav-icon: #fff;
+    --logo-color: #fff;
+    --icon-color: #8749f2;
+    --mode-color: #fff;
+}
+
+.container{
+    width: 100%;
+    position: relative;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* nav bar */
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    line-height: 100px;
+    background: var(--nav-color);
+    padding-inline: 10wv;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.nav-logo{
+    position: relative;
+}
+
+.logo-name{
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--logo-color);
+    font-family: 'Inria Serif', sans-serif;
+}
+
+.nav-menu,
+.nav_menu_list{
+    display: flex;
+    column-gap: -30px;
+}
+
+.nav-menu .nav_list{
+    list-style: none;
+    position: relative;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
