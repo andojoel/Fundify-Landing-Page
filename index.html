@@ -22,34 +22,30 @@
             <div class="nav-menu" id="navMenu">
                 <ul class="nav_menu_list">
                     <li class="nav_list">
-                        <a href="#dashboard" class="nav-link active-link">Home</a>
+                        <a href="#home" class="nav-link active-link">Accueil</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#historic" class="nav-link active-link">About us</a>
+                        <a href="#about" class="nav-link">A propos</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#asset-list" class="nav-link active-link">L'application</a>
+                        <a href="#application" class="nav-link">La plateforme</a>
                         <div class="circle"></div>
-                    </li>
-                    <li class="nav_list">
-                        <div class="text-btn">
-                            <a href="#login" class="nav-link active-link">Se connecter</a>
-                        </div>
-                    </li>
-                    <li class="nav_list">
-                        <div class="text-btn">
-                            <a href="#signup" class="nav-link active-link">S'inscrire</a>
-                        </div>
                     </li>
                 </ul>
             </div>
-            <!-- Dark mode button -->
-            <div class="mode">
-                <div class="moon-sun" id="toggle-switch">
-                    <i class="fa fa-moon" id="moon"></i>
-                    <i class="fa fa-sun" id="sun"></i>
+            <div class="nav-menu" id="navMenu">
+                <div>
+                    <button class="btn login-btn">Connexion</button>
+                    <button class="btn signup-btn">S'inscrire</button>
+                </div>
+                <!-- Dark mode button -->
+                <div class="mode">
+                    <div class="moon-sun" id="toggle-switch">
+                        <i class="fa fa-moon" id="moon"></i>
+                        <i class="fa fa-sun" id="sun"></i>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -59,31 +55,33 @@
             <!-- Home section -->
             <section class="featured-box" id="home">
                 <div class="featured-text">
-                    <h1 class="invest">Investissez</h1>
-                </div>
-                <div class="featured-invest-type">
-                    <span class="typedText">librement</span>
-                </div>
-                <div class="text-info">
-                    <p>Lâcher prise et observez vos investissement grandir</p>
-                </div>
-                <div class="text-btn">
-                    <button class="learn-more-btn">En savoir plus</button>
+                    <div class="invest">
+                        <h1>Investissez</h1>
+                    </div>
+                    <div class="featured-invest-type">
+                        <span class="typedText"></span>
+                    </div>
+                    <div class="text-info">
+                        <p class="text-info">Lâchez prise et observez vos investissement grandir</p>
+                    </div>
+                    <div>
+                        <button class="btn learn-more-btn">Commencer</button>
+                    </div>
                 </div>
                 <div class="featured-image">
                     <div class="image">
-                        <img src="" alt="">
+                        <img src="./assets/money-home-unsplash.jpg" alt="money-home">
                     </div>
                 </div>
             </section>
 
             <!-- About us section -->
             <section class="about_us" id="about">
-
+                <div>About us</div>
             </section>
 
             <section class="application" id="application">
-
+                <div>L'application</div>
             </section>
         </main>
 
