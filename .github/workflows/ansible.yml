@@ -1,0 +1,20 @@
+name: Ansible Deployment
+
+on:
+  push:
+    branches:
+      - deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Ansible
+        uses: appleboy/ansible-action@v2
+        with:
+          playbook: Fundify-Landing-Page/tree/deployment/deployment/deploy.yml
+          inventory: Fundify-Landing-Page/tree/deployment/deployment/inventaire.ini
