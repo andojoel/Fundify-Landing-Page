@@ -1,0 +1,90 @@
+---
+
+- name: Install MariaDB and .NET SDK 8.0 
+  hosts: test-fundify
+  become: yes
+
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    - name: Install MariaDB server
+      apt:
+        name: mariadb-server
+        state: present
+
+    - name: Start and enable MariaDB service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Download microsoft repository package
+      get_url:
+        url: https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+        dest: /tmp/packages-microsoft-prod.deb
+
+    - name: Install microsoft repository package
+      apt:
+        deb: /tmp/packages-microsoft-prod.deb
+        update_cache: yes
+
+    - name: Remove microsoft repository package
+      file:
+        path: /tmp/packages-microsoft-prod
+        state: absent
+
+    - name: Update apt package cache after adding microsoft repository
+      apt:
+        update_cache: yes
+        
+    - name: Install .NET SDK 8.0
+      apt:
+        name: dotnet-sdk-8.0
+        state: present
+
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start and enable Apache2 service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Install git
+      apt:
+        name: git
+        state: present
+
+    - name: Create /tmp/backup directory
+      file:
+        path: /tmp/backup
+        state: directory
+    
+    - name: Backup default apache2 index.html
+      command: mv /var/www/html/index.html /tmp/backup/index.html
+      ignore_errors: yes
+
+    - name: Clone Git repository
+      git:
+        repo: https://github.com/andojoel/Fundify-Landing-Page
+        dest: /var/www/html
+        version: deployment
+        force: true
+        update: yes
+      notify: Restart apache2 service
+
+  handlers:
+    - name: Restart MariaDB service
+      service:
+        name: mysql
+        state: restarted
+
+    - name: Restart apache2 service
+      service:
+        name: apache2
+        state: restarted
