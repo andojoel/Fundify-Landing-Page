@@ -1,0 +1,20 @@
+name: Ansible Deployment
+
+on:
+  push:
+    branches:
+      - deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # You can choose another OS if needed
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Ansible
+        uses: appleboy/ansible-action@v2
+        with:
+          playbook: deployment/test-deploy.yml
+          inventory: deployment/inventaire.ini
