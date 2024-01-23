@@ -28,8 +28,6 @@
 
     --icon-color: #242526;
     --mode-color: #ccc;
-
-    --max-width-container: 2200px;
 }
 
 body{
@@ -54,8 +52,6 @@ body.dark{
 .container{
     width: 100%;
     position: relative;
-    display: grid;
-    place-content: center;
 }
 
 html{
@@ -70,8 +66,8 @@ nav{
     width: 100%;
     height: 90px;
     line-height: 100px;
+    padding-inline: 5vw;
     background: var(--nav-color);
-    padding-inline: 10vw;
     transition: 0.3s;
     z-index: 100;
 }
@@ -126,50 +122,20 @@ nav{
     background: var(--first-color);
 }
 
-/* Mode */
-.mode{
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-}
-
-.moon-sun{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    border-radius: 30px;
-    cursor: pointer;
-    background: var(--mode-color);
-}
-
-.moon-sun :is(#moon, #sun){
-    position: absolute;
-    transition: .2s ease-in-out;
-}
-
-#sun{
-    opacity: 0;
-}
-
-body.dark #sun {
-    opacity: 1;
-}
-
-body.dark #moon {
-    opacity: 0;
-}
-
 /* wrapper */
 .wrapper{
-    width: 100%;
+    margin: auto;
+    max-width: 1800px;
     padding-inline: 10vw;
+    transition: 0.3s;
+}
+
+section{
+    transition: 0.3s;
 }
 
 /* box */
-.featured-box{
+.home-box{
     position: relative;
     display: flex;
     justify-content: center;
@@ -178,7 +144,7 @@ body.dark #moon {
     min-height: 700px;
 }
 
-.featured-text{
+.home-text{
     position: relative;
     display: flex;
     justify-content: center;
@@ -188,34 +154,20 @@ body.dark #moon {
     padding-left: 20px;
 }
 
-.featured-text .invest{
-    font-size: 50px;
-    font-weight: 500;
-    margin-bottom: -20px;
+.invest h1{
+    font-size: 4.5rem;
     color: var(--text-color);
-}
-
-.featured-invest-type{
-    font-size: 3rem;
-    font-weight: 600;
-    margin-block: 20px;
-    margin-bottom: 10px;
-}
-
-.typedText{
-    font-family: sans-serif;
-    font-size: 8px;
-    font-weight: 600;
-    text-transform: capitalize;
+    margin-bottom: -10px;
+    font-family: 'Inria Serif', sans-serif;
 }
 
 .text-info{
     width: 24rem;
-    font-family: "Inria Serif", serif;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
 
@@ -265,11 +217,9 @@ body.dark #moon {
     line-height: normal;
 }
 
-.featured-image{
+.home-image{
     display: flex;
-    justify-content: right;
-    align-items: center;
-    min-height: 80svh;
+    justify-content: end;
     width: 100%;
 }
 
@@ -277,15 +227,94 @@ body.dark #moon {
     margin-top: 10%;
     overflow: hidden;
     transition: 0.3s;
-    z-index: 100;
+    /* z-index: 1000; */
 }
 
 .image img{
-    width: 39rem;
-    height: 33.125rem;
+    margin: 0px auto;
+    width: 45vw;
+    max-width: 850px;
     object-fit: scale-down;
 }
 
 footer{
+    font-size: 0.927rem;
     padding-inline: 10vw;
+    padding-top: 2vw;
+    padding-bottom: 1.22vw;
+    background: #243229;
 }
+
+.middle-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+footer span{
+    color: #fff;
+}
+
+.about-box{
+    min-height: 100svh;
+}
+
+.app-box{
+    min-height: 100svh;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .home-box{
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: 100svh;
+        min-height: 700px;
+    }
+
+    .home-text{
+        min-height: fit-content;
+        text-align: center;
+        align-items: center;
+        padding-left: 0px;
+        width: 90%;
+    }
+
+    .home-image{
+        justify-content: center;
+    }
+
+    .image img{
+        content: url('./assets/money-home-unsplash.jpg');
+        width: 30rem;
+        object-fit: scale-down;
+    }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) { }
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) { }
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+    .image img{
+        width: 20rem;
+    }
+
+    .invest h1{
+        font-size: 3rem;
+    }
+    .text-info{
+        font-size: 1.22rem;
+        font-weight: 300;
+    }
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) { }
