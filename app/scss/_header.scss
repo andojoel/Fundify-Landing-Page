@@ -8,6 +8,8 @@
         @include breakpoint-up(large) {
             padding-left:5rem;
             padding-right:5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
             }
     }
 
@@ -59,9 +61,10 @@
         }
         .button--login {
             background: $white;
-            outline: 3px solid $brown;
-            outline-offset: -3px;
+            //outline: 3px solid $brown;
+            //outline-offset: -3px;
             color: $black;
+            border-top: 1px solid $brown;
         }
 
         .button--register {

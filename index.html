@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,13 +27,13 @@
         <a href="#" class="header__title">Fundify.</a>
 
         <div class="header__links hide-for-mobile">
-            <a href="#">Tableau de bord</a>
-            <a href="#">Historique d'achats</a>
-            <a href="#">Liste d'assets</a>
+            <a href="#">Accueil</a>
+            <a href="#">A propos</a>
+            <a href="#">La plateforme</a>
         </div>
 
         <div class="header__cta hide-for-mobile">
-          <a href="#" class="button button--login">Connexion</a>
+          <a href="login.html" class="button button--login">Connexion</a>
           <a href="#" class="button button--register">S'inscrire</a>
         </div>
 
@@ -52,13 +52,22 @@
           <p>
             Ne faites rien et observez <br class="hide-for-desktop"/>vos investissements<br class="hide-for-desktop"/> grandir.
           </p>
-          <a href="#" class="button hero__cta">Commencer</a>
+          <a href="login.html" class="button hero__cta hide-for-mobile">Commencer</a>
+          <a href="login.html" class="button hero__cta hide-for-desktop">Se connecter</a>
           <p>
           <a href="#" class="hero__register-link hide-for-desktop">Créer un compte</a>
           </p>
         </div>
       </div>
     </section>
+
+    <footer class="footer hide-for-mobile">
+        <a href="#" class="footer__cookie-pref">Préférences en matière de cookies</a>
+        <p>
+          Copyright Fundify Paris 2024 - Tous droits réservés 2024
+        </p>
+
+    </footer>
 
    <script src="/app/js/script.js"></script> <!-- Import du script -->
 

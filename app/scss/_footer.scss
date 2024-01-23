@@ -1,0 +1,17 @@
+.footer {
+    background-color: $darkGreen;
+    color: $white;
+    padding: 2.5rem;
+    text-align: center;
+    line-height: 1rem;
+    
+    a {
+        color: $white;
+    }
+
+
+    &__cookie-pref {
+        opacity: 55%;
+        
+    }
+}
