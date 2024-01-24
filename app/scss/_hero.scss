@@ -1,0 +1,101 @@
+.hero {
+
+    .container {
+        max-width: 100rem;
+
+        @include breakpoint-up(large) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__image {
+        position: relative;
+        background-image: url("/images/image-hero-mobile.svg");
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 28rem;
+        //background-position-y: 60%;
+
+        @include breakpoint-up(large) {
+            flex: 2; // Ratio d'affichage
+            order: 2; // Ordre d'affichage
+            min-height: 60rem; // Donne une taille à l'image qui donnerait elle-même la taille à la classe "hero" parente
+            background-image: none;
+            //background-image: url("/images/bg-intro-desktop.svg");
+            //background-position: left center;
+        };
+
+        &::before {
+
+            @include breakpoint-up(large){
+                content: ""; // Code à utiliser quand on utilise un élement en before ou after
+                height:100%;
+                // width: 100%;
+                position: absolute; // Attention à bien mettre la "parent" position en "relative"
+                background-image: url("/images/image-hero-desktop.svg");
+                background-repeat: no-repeat;
+                background-position: center bottom;
+                //width: 56vw;
+                //background-size: contain;
+                width: 160%;
+                background-size: 90%;
+                background-position: -10% 80%;
+            }
+        }
+
+    }
+
+    &__text {
+        text-align: center;
+        background-color: transparent;
+
+        @include breakpoint-up(large) {
+            flex: 1;
+            order: 1;
+            text-align: left;
+        };
+
+        h1 {
+            font-size: $font-lg;
+            font-weight: 600;
+            line-height: 4.3rem;
+            margin-top: 0rem;
+            font-family: 'Inria Serif';
+
+            @include breakpoint-up(large){
+                font-size: $font-title;
+                line-height: 7rem;
+                margin-bottom: 0rem;
+            }
+        }
+
+        p {
+            font-size: $font-smed;
+            font-weight: 400;
+            font-family: 'Inria Serif';
+            margin-bottom: 4rem;
+
+            @include breakpoint-up(large){
+                font-size: $font-med;
+            }
+
+        }
+
+        .button {
+            background: $lightGreen;
+            border: 0;
+            color: $white;
+            font-size: $font-smed;
+            font-weight: 500;
+        }
+
+    }
+
+    &__register-link {
+        color: $brown;
+        text-decoration: underline;
+    }
+    
+}

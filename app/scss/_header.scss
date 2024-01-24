@@ -1,0 +1,79 @@
+.header {
+
+    nav {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        align-items:right;
+
+        @include breakpoint-up(large) {
+            padding-left:5rem;
+            padding-right:5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            }
+    }
+
+    &__title {
+        //display: flex;
+        font-family: 'Inria Serif';
+        font-weight:700;
+        color: $black;
+
+        width: 100%;
+        text-align: center;
+        font-size: $font-lg;
+
+        @include breakpoint-up(large) {
+        font-size: $font-title;
+        width: auto;
+        text-align: left;
+        }
+    }
+
+    &__links {
+        a {
+            position: relative;
+            font-size: $font-sm;
+            color: $black;
+            font-weight: 600;
+            transition: color 300ms ease-in-out;
+
+            &:not(:last-child) {
+                margin-right: 32px;
+            }
+
+            &:hover {
+                color: $grayishBlue;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__cta {
+
+        .button {
+        &:not(:last-child) {
+            margin-right: 12px;
+        }
+        }
+        .button--login {
+            background: $white;
+            //outline: 3px solid $brown;
+            //outline-offset: -3px;
+            color: $black;
+            border-top: 1px solid $brown;
+        }
+
+        .button--register {
+            background: $brown;
+            border: 0;
+            color: $white;
+        }
+    }
+
+
+
+}
