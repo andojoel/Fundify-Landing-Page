@@ -330,6 +330,10 @@ footer a{
         height: auto;
         justify-content: start;
     }
+
+    .image img{
+        width: 25rem;
+    }
 }
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
