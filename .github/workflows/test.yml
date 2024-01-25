@@ -19,5 +19,8 @@ jobs:
       uses: google-github-actions/setup-gcloud@v2
 
     - name: Use gcloud CLI
-      run: gcloud info
+      run: |
+        gcloud compute ssh INSTANCE_NAME --command "cd /home/anthony_kau && mkdir test"
+      env:
+        INSTANCE_NAME: ansible_master
 
