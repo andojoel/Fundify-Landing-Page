@@ -22,6 +22,6 @@ jobs:
 
     - name: Deploy to GCP Compute Engine
       run: |
-        gcloud compute ssh INSTANCE_NAME --command "mkdir test"
+        gcloud compute ssh INSTANCE_NAME --command "cd /home/anthony_kau && mkdir test"
       env:
         INSTANCE_NAME: ansible-master
