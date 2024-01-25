@@ -19,7 +19,6 @@ jobs:
         chmod 600 ~/.ssh/google_compute_engine.pub
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/google_compute_engine
-        ssh-add ~/.ssh/google_compute_engine.pub
     
     - name: Authenticate with GCP
       uses: google-github-actions/auth@v2
