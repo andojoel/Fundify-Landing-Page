@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Fundify Paris</title>
+    <script>
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Auth box -->
+        <div class="auth-box">
+            <div class="back-box">
+                <a id="go-back" class="go-back">
+                    Revenir en arrière
+                </a>
+                <script>
+                    document.getElementById("go-back").addEventListener("click", () => {
+                        window.history.go(-1)
+                    });
+                </script>
+            </div>
+            <div class="form">
+                <a class="logo-btn" href="./"><p class="logo-name">Fundify.</p></a>
+
+                <div id="login" class="login-form">
+                    <form action="http://dashboard.fundify-paris.fr">
+                        <div class="login-box">
+                            <div class="login-title">
+                                <h2>Se connecter</h2>
+                            </div>
+                            <div class="text-box">
+                                <span>E-mail / identifiant</span>
+                                <input type="email" placeholder="Votre e-mail ou identifiant" id="email" required/>
+                            </div>
+                            <div class="text-box">
+                                <span>Mot de passe</span>
+                                <input type="password" placeholder="Votre mot de passe" id="password" required/>
+                            </div>
+                            <button type="submit" class="btn">Se connecter</button>
+                        </div>
+                        <div class="placetext">
+                            <a href="#">Mot de passe oublié ?</a>
+                        </div>
+                        <div class="placetext">
+                            <span>Vous n'avez pas de compte ?</span>
+                            <a href="./register.html">S'inscrire</a>
+                        </div>
+                        <div class="placetext">
+                            <a href="#">Politique de confidentialité</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

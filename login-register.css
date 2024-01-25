@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+body{
+    background-color: #fdfdfd;
+}
+
+.container{
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.back-box{
+    margin: 0.812rem 0;
+}
+
+.go-back{
+    cursor: pointer;
+    display: flex;
+    color: #3f703e;
+}
+
+.go-back:hover{
+    text-decoration: underline;
+}
+
+.auth-box{
+    height: 100%;
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+}
+
+.form{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    border: 1px solid rgb(91, 97, 110, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    min-width: 24rem;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+.logo-btn{
+    text-decoration: none;
+}
+
+.logo-name{
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Inria Serif', sans-serif;
+    margin-bottom: 3rem;
+    color: #243229;
+}
+
+.login-title h2,
+.signup-title h2{
+    font-weight: 500;
+    line-height: 3rem;
+    letter-spacing: -0.618px;
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.618rem;
+}
+
+.text-box span{
+    line-height: 2rem;
+    font-weight: 500;
+    font-size: 0.922rem;
+}
+
+.text-box input{
+    line-height: 2.22rem;
+    text-align: start;
+    color-scheme: light;
+    border: 1px solid rgba(45, 48, 54, 0.1);
+    border-radius: 6px;
+    padding: 0 1rem;
+}
+
+.text-box input:focus{
+    outline-color: #518150;
+}
+
+.btn{
+    width: 100%;
+    border: 1px solid rgb(91, 97, 110, 0.1);
+    line-height: 2rem;
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 0 1rem;
+    text-align: center;
+    background-color: #518150;
+    color: #fff;
+    margin-top: 0.618rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #3f703e;
+}
+
+.placetext{
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.22rem;
+}
+
+.placetext a{
+    text-decoration: none;
+    color: #3f703e;
+}
+
+.placetext a:hover{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width : 480px) {
+    body{
+        background-color: #fff;
+    }
+
+    .back-box{
+        margin: 0;
+        margin-bottom: 5.67rem;
+        padding: 0 2rem;
+    }
+
+    .auth-box{
+        margin-top: 1rem;
+        margin-bottom: auto;
+    }
+    
+    .form{
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+}
