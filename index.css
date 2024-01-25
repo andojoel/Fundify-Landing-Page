@@ -50,6 +50,9 @@ body.dark{
 }
 
 .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     position: relative;
 }
@@ -64,23 +67,30 @@ nav{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    max-width: 1800px;
+    margin: auto;
     height: 90px;
     line-height: 100px;
-    padding-inline: 5vw;
     background: var(--nav-color);
     transition: 0.3s;
     z-index: 100;
+    padding-inline: 10vw;
 }
 
 .nav-logo{
     position: relative;
 }
 
+.nav-logo a{
+    text-decoration: none;
+}
+
 .logo-name{
     font-size: 4rem;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--logo-color);
     font-family: 'Inria Serif', sans-serif;
+    color: #243229;
 }
 
 .nav-menu,
@@ -140,7 +150,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100svh;
+    height: 80svh;
     min-height: 700px;
 }
 
@@ -148,7 +158,7 @@ section{
     position: relative;
     display: flex;
     justify-content: center;
-    min-height: 100svh;
+    height: 100%;
     flex-direction: column;
     width: 50%;
     padding-left: 20px;
@@ -181,6 +191,7 @@ section{
     border-radius: 1rem;
     cursor: pointer;
     z-index: 0;
+    transition: 3ms;
 }
 
 .login-btn{
@@ -198,8 +209,13 @@ section{
 }
 
 .btn:hover{
-    box-shadow: 2px 0px 2px rgba(166, 175, 195, 0.25);
+    box-shadow: inset 12px 0px 12px rgba(66, 66, 66, 0.315);
 }
+
+.login-btn:hover{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.192);
+}
+
 
 .learn-more-btn{
     width: 10.5rem;
@@ -242,7 +258,6 @@ footer{
     padding-inline: 10vw;
     padding-top: 2vw;
     padding-bottom: 1.22vw;
-    background: #243229;
 }
 
 .middle-footer{
@@ -253,35 +268,31 @@ footer{
 
 footer a{
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.55);
-}
-
-footer span{
-    color: #fff;
-}
-
-.about-box{
-    min-height: 100svh;
-}
-
-.app-box{
-    min-height: 100svh;
+    color: rgba(54, 54, 54, 0.55);
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
+    .container{
+        display: block;
+    }
+
+    .nav-menu{
+        display: none;
+    }
+
     .home-box{
         position: relative;
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        height: 100svh;
+        height: 90svh;
         min-height: 700px;
     }
 
     .home-text{
-        min-height: fit-content;
+        height: fit-content;
         text-align: center;
         align-items: center;
         padding-left: 0px;
@@ -301,7 +312,25 @@ footer span{
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) { }
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) { }
+@media only screen and (max-width : 767px) { 
+    .logo-name{
+        font-size: 3rem;
+    }
+
+    .login-register{
+        display: none;
+    }
+
+    nav{
+        position: relative;
+        justify-content: center;
+    }
+
+    .home-box{
+        height: auto;
+        justify-content: start;
+    }
+}
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
     .image img{
@@ -311,6 +340,7 @@ footer span{
     .invest h1{
         font-size: 3rem;
     }
+
     .text-info{
         font-size: 1.22rem;
         font-weight: 300;
