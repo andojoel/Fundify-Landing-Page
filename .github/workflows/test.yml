@@ -1,4 +1,4 @@
-name: [TEST] Deploy to GCP Compute Engine
+name: test Deploy to GCP Compute Engine
 
 on:
   push:
