@@ -73,10 +73,14 @@
                                 };
 
                                 fetch('http://api.fundify-paris.fr/api/v1/user/login', {
-                                    method: "POST",
+                                    method: "OPTIONS",
                                     headers: {
-                                        "Content-Type": "application/json",
-                                        "Accept": "/"
+                                        "Accept": "*/*",
+                                        "Connection": "keep-alive",
+                                        "Access-Control-Request-Method": "POST",
+                                        "Access-Control-Request-Headers": "X-PINGOTHER, Content-Type",
+                                        // "Content-Type": "application/json",
+                                        // "Accept": "/"
                                     },
                                     body: JSON.stringify(payload)
                                 })
