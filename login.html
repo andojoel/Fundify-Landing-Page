@@ -49,9 +49,7 @@
                             <div class="login-title">
                                 <h2>Se connecter</h2>
                             </div>
-                            <div class="toast" id="toast">
-                                Error : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto saepe quas omnis dolorum cum, ex molestiae rem, neque quam minima hic earum porro ipsa labore ut iste eaque vitae ad.
-                            </div>
+                            <div class="toast" id="toast"></div>
                             <div class="text-box">
                                 <span>E-mail / identifiant</span>
                                 <input name="username" type="text" placeholder="Votre e-mail ou identifiant" required/>
@@ -92,7 +90,7 @@
                                 .then((result) => console.log(result))
                                 .catch((error) => {
                                     const toast = document.getElementById('toast');
-                                    toast.textContent = error;
+                                    toast.textContent += error;
                                     toast.style.display = "block";
                                     console.error(error)
                                 });
