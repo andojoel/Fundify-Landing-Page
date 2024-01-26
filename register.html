@@ -79,11 +79,9 @@
                                     const response = await fetch(link, {
                                         method: "POST",
                                         mode: 'no-cors',
-                                        headers: {
+                                        header: {
                                             "Accept": "*/*",
-                                            "Connection": "keep-alive",
-                                            "Content-Type": "application/json",
-                                            "Accept": "/"
+                                            "Content-Type": "application/json"
                                         },
                                         body: JSON.stringify(payload)
                                     });
