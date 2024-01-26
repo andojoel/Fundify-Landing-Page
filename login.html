@@ -75,7 +75,7 @@
                                 fetch('http://api.fundify-paris.fr/api/v1/user/login', {
                                     method: "POST",
                                     mode: 'cors',
-                                    header: {
+                                    headers: {
                                         "Content-Type": "application/json"
                                     },
                                     body: JSON.stringify(payload)

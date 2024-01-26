@@ -79,7 +79,7 @@
                                     const response = await fetch(link, {
                                         method: "POST",
                                         mode: 'cors',
-                                        header: {
+                                        headers: {
                                             "Content-Type": "application/json"
                                         },
                                         body: JSON.stringify(payload)
