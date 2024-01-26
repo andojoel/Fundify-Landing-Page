@@ -16,11 +16,18 @@ body{
 }
 
 .container{
-    height: 100svh;
+    /* height: 100svh; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 2rem;
+    transition: 3ms;
+}
+
+.auth-box{
+    height: 100%;
+    margin: 5rem auto auto auto;
 }
 
 .back-box{
@@ -37,21 +44,26 @@ body{
     text-decoration: underline;
 }
 
-.auth-box{
-    height: 100%;
-    margin-bottom: 10rem;
-    margin-top: 5rem;
-}
-
-.form{
+.form-box{
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     border: 1px solid rgb(91, 97, 110, 0.1);
     border-radius: 16px;
     padding: 2rem;
     padding-bottom: 3rem;
-    min-width: 24rem;
+    width: 24rem;
     background-color: #fff;
     transition: 0.3s;
+}
+
+#toast{
+    display: none;
+    font-size: 0.812rem;
+    border-radius: 6px;
+    padding: 1.22rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    background-color: rgb(255, 228, 228);
+    border: 2px solid rgba(255, 219, 219, 0.618);
 }
 
 .logo-btn{
@@ -140,20 +152,32 @@ body{
     }
 
     .back-box{
+        margin-top: 1rem;
         margin: 0;
         margin-bottom: 5.67rem;
         padding: 0 2rem;
     }
 
     .auth-box{
+        width: 100svw;
         margin-top: 1rem;
         margin-bottom: auto;
     }
     
-    .form{
+    .form-box{
         box-shadow: none;
         border: 0;
         border-radius: 0;
         width: 100%;
+    }
+}
+
+@media only screen and (max-height : 860px) {
+    .auth-box{
+        margin-bottom: 2rem;
+    }
+
+    .back-box{
+        margin-bottom: 2rem;
     }
 }

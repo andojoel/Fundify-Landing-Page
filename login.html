@@ -26,22 +26,25 @@
                     });
                 </script>
             </div>
-            <div class="form">
+            <div class="form-box">
                 <a class="logo-btn" href="./"><p class="logo-name">Fundify.</p></a>
 
                 <div id="login" class="login-form">
-                    <form action="http://dashboard.fundify-paris.fr">
+                    <form class="form">
                         <div class="login-box">
                             <div class="login-title">
                                 <h2>Se connecter</h2>
                             </div>
+                            <div class="toast" id="toast">
+                                Error : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto saepe quas omnis dolorum cum, ex molestiae rem, neque quam minima hic earum porro ipsa labore ut iste eaque vitae ad.
+                            </div>
                             <div class="text-box">
                                 <span>E-mail / identifiant</span>
-                                <input type="email" placeholder="Votre e-mail ou identifiant" id="email" required/>
+                                <input name="username" type="text" placeholder="Votre e-mail ou identifiant" required/>
                             </div>
                             <div class="text-box">
                                 <span>Mot de passe</span>
-                                <input type="password" placeholder="Votre mot de passe" id="password" required/>
+                                <input name="password" type="password" placeholder="Votre mot de passe" required/>
                             </div>
                             <button type="submit" class="btn">Se connecter</button>
                         </div>
@@ -56,6 +59,42 @@
                             <a href="#">Politique de confidentialité</a>
                         </div>
                     </form>
+                    <script>
+                        const formEl = document.querySelector(".form");
+                        formEl.addEventListener('submit', (event) => {
+                            event.preventDefault();
+                            
+                            const formData = new FormData(formEl);
+                            const username = formData.get('username');
+                            const password = formData.get('password');
+                            const cookie = "";
+                            if(password){
+                                const payload = {
+                                    "email": username,
+                                    "password": password
+                                };
+
+                                fetch('http://localhost:5500/api/user/login', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(payload)
+                                })
+                                .then(result => result.json())
+                                .then(data => {
+                                    cookie = data.token;
+                                    document.cookie = 'tokenpromised:'+cookie;
+                                })
+                                .catch(error => {
+                                    const toast = document.getElementById('toast');
+                                    toast.textContent = error;
+                                    toast.style.display = "block";
+                                    console.error(error)
+                                });
+                            }
+                        })
+                    </script>
                 </div>
             </div>
         </div>

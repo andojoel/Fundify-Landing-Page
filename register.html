@@ -26,26 +26,29 @@
                     });
                 </script>
             </div>
-            <div class="form">
+            <div class="form-box">
                 <a class="logo-btn" href="./"><p class="logo-name">Fundify.</p></a>
 
                 <div id="signup" class="signup-form">
-                    <form action="">
+                    <form class="form">
                         <div class="signup-box">
                             <div class="signup-title">
                                 <h2>Inscription</h2>
                             </div>
+                            <div class="toast" id="toast">
+                                Error : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto saepe quas omnis dolorum cum, ex molestiae rem, neque quam minima hic earum porro ipsa labore ut iste eaque vitae ad.
+                            </div>
                             <div class="text-box">
                                 <span>E-mail / identifiant</span>
-                                <input type="email" placeholder="Votre e-mail ou identifiant" id="email" required/>
+                                <input name="username" type="text" autocomplete="additional-name" placeholder="Votre e-mail ou identifiant" required/>
                             </div>
                             <div class="text-box">
                                 <span>Mot de passe</span>
-                                <input type="password" placeholder="Votre mot de passe" id="password" required/>
+                                <input name="password" type="password" placeholder="Votre mot de passe" required/>
                             </div>
                             <div class="text-box">
                                 <span>Confirmer le mot de passe</span>
-                                <input type="password" placeholder="Confirmer votre mot de passe" id="password" required/>
+                                <input name="confirmed-password" type="password" placeholder="Confirmer votre mot de passe" id="confirmed-password" required/>
                             </div>
                             <button type="submit" class="btn">S'inscrire</button>
                         </div>
@@ -57,6 +60,49 @@
                             <a href="#">Politique de confidentialité</a>
                         </div>
                     </form>
+                    <script>
+                        const formEl = document.querySelector(".form");
+                        formEl.addEventListener('submit', (event) => {
+                            event.preventDefault();
+                            
+                            const formData = new FormData(formEl);
+                            const username = formData.get('username');
+                            const password = formData.get('password');
+                            const confirmedPassword = formData.get('confirmed-password');
+                            const cookie = "";
+                            if(password === confirmedPassword){
+                                const payload = {
+                                    "email": username,
+                                    "password": password
+                                };
+
+                                const getJSON = async (link, payload) => {
+                                    // Generate the Response object
+                                    const response = await fetch(link, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(payload)
+                                    });
+                                    if (response.ok) {
+                                        // Get JSON value from the response body
+                                        return response.json();
+                                    }
+                                    throw new Error(response.status);
+                                };
+
+                                getJSON('http://localhost:5500/api/user/register', payload)
+                                .then((result) => console.log(result))
+                                .catch((error) => {
+                                    const toast = document.getElementById('toast');
+                                    toast.textContent = error;
+                                    toast.style.display = "block";
+                                    console.error(error)
+                                });
+                            }
+                        })
+                    </script>
                 </div>
             </div>
         </div>
