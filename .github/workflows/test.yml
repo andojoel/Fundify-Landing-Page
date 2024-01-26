@@ -1,6 +1,8 @@
-name: test Deploy to GCP Compute Engine
+name: Deploy to GCP Compute Engine
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
