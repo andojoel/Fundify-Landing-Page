@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Fundify Paris</title>
-    <script>
-    </script>
 </head>
 <body>
     <div class="container">
@@ -74,7 +72,7 @@
                                     "password": password
                                 };
 
-                                fetch('http://localhost:5500/api/v1/user/login', {
+                                fetch('http://api.fundify-paris.fr/api/v1/user/login', {
                                     method: 'POST',
                                     headers: {
                                         'Content-Type': 'application/json'

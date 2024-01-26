@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Fundify Paris</title>
-    <script>
-    </script>
 </head>
 <body>
     <div class="container">
@@ -92,7 +90,7 @@
                                     throw new Error(response.status);
                                 };
 
-                                getJSON('http://localhost:5500/api/v1/user/register', payload)
+                                getJSON('http://api.fundify-paris.fr/api/v1/user/register', payload)
                                 .then((result) => console.log(result))
                                 .catch((error) => {
                                     const toast = document.getElementById('toast');
