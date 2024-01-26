@@ -11,13 +11,16 @@
     <title>Fundify Paris</title>
     <script>
         async function fetchData(link, payload){
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', 'application/json');
+            headers.append('Origin','http://localhost:3000');
+
             request = await fetch(link, {
                 method: "POST",
+                credentials:"include",
                 mode:"cors",
-                headers: {
-                    "accept": "application/json",
-                    "Content-Type": "application/json"
-                },
+                headers: headers,
                 body: payload
             })
             if(request.Accept || request.ok) return request.json()
