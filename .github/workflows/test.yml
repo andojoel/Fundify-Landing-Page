@@ -30,6 +30,6 @@ jobs:
 
     - name: Use gcloud CLI
       run: |
-        gcloud compute ssh ansible-master --zone=europe-west9-a --command "cd /home/anthony_kau && mkdir test"
+        gcloud compute ssh ansible-master --zone=europe-west9-a --command "cd /home/anthony_kau/ansible/Fundify-Landing-Page/deployment && ansible-playbook -i inventaire.ini dev-deploy.yml"
       
 
