@@ -77,14 +77,13 @@
                                 const getJSON = async (link, payload) => {
                                     // Generate the Response object
                                     const response = await fetch(link, {
-                                        method: "OPTIONS",
+                                        method: "POST",
+                                        mode: 'cors',
                                         headers: {
                                             "Accept": "*/*",
                                             "Connection": "keep-alive",
-                                            "Access-Control-Request-Method": "POST",
-                                            "Access-Control-Request-Headers": "X-PINGOTHER, Content-Type",
-                                            // "Content-Type": "application/json",
-                                            // "Accept": "/"
+                                            "Content-Type": "application/json",
+                                            "Accept": "/"
                                         },
                                         body: JSON.stringify(payload)
                                     });
