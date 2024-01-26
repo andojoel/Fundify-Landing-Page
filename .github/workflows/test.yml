@@ -1,0 +1,35 @@
+name: test Deploy to GCP Compute Engine
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.GCP_SSH_PRIVATE_KEY }}" > ~/.ssh/google_compute_engine
+        echo "${{ secrets.GCP_SSH_PUBLIC_KEY }}" > ~/.ssh/google_compute_engine.pub
+        chmod 600 ~/.ssh/google_compute_engine
+        chmod 600 ~/.ssh/google_compute_engine.pub
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/google_compute_engine
+    
+    - name: Authenticate with GCP
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v2
+
+    - name: Use gcloud CLI
+      run: |
+        gcloud compute ssh ansible-master --zone=europe-west9-a --command "cd /home/anthony_kau && mkdir test"
+      
+

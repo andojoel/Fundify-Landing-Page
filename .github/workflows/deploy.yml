@@ -1,0 +1,25 @@
+name: Deploy to GCP compute Engine
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Google Cloud SDK
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@v2
+      with:
+        version: "latest"
+        project_id: ${{ secrets.PROJECT_ID }}
+        service_account_key: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+    - name: Deploy to GCP Compute Engine
+      run: |
+        gcloud compute ssh INSTANCE_NAME --command "cd /home/anthony_kau && mkdir test"
+      env:
+        INSTANCE_NAME: ansible-master
