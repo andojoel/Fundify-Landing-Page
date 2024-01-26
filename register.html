@@ -77,9 +77,10 @@
                                 const getJSON = async (link, payload) => {
                                     // Generate the Response object
                                     const response = await fetch(link, {
-                                        method: 'POST',
+                                        method: "POST",
                                         headers: {
-                                            'Content-Type': 'application/json'
+                                            "Content-Type": "application/json",
+                                            "Accept": "/"
                                         },
                                         body: JSON.stringify(payload)
                                     });
