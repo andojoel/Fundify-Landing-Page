@@ -30,6 +30,6 @@ jobs:
 
     - name: Use gcloud CLI
       run: |
-        gcloud compute ssh anthony_kau@34.155.103.10 --zone=europe-west9-a --command "cd /home/anthony_kau && mkdir test"
+        gcloud compute ssh ansible-master --zone=europe-west9-a --command "cd /home/anthony_kau && mkdir test"
       
 
