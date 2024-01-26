@@ -22,12 +22,6 @@
                 body: payload
             })
             if(request.Accept || request.ok) return request.json();
-            else if(request.status >= 400 && 499 <= request.status) {
-                console.log("Error: ", request.status);
-                const toast = document.getElementById('toast');
-                toast.textContent = error;
-                toast.style.display = "block";
-            }
             throw new Error(request.status);
         }
     </script>
@@ -95,7 +89,10 @@
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
                                 .then((result) => console.log(result))
                                 .catch((error) => {
-                                    console.error(error)
+                                    console.log("Error: ", error);
+                                    const toast = document.getElementById('toast');
+                                    toast.textContent = error;
+                                    toast.style.display = "block";
                                 });
                             }
                         })
