@@ -22,7 +22,7 @@
                 body: payload
             })
             if(request.Accept || request.ok) return request.json()
-            throw new Error(request.status);
+            throw new Error(request);
         }
     </script>
 </head>
@@ -92,7 +92,7 @@
                                 .then((result) => console.log(result))
                                 .catch((error) => {
                                     const toast = document.getElementById('toast');                                    
-                                    toast.textContent += error;
+                                    toast.textContent = error;
                                     toast.style.display = "block";
                                     console.error(error)
                                 });
