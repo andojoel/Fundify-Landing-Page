@@ -89,7 +89,7 @@
                                     password: password
                                 };
 
-                                fetchData('http://api.fundify-paris.fr/api/v1/user/register', payload)
+                                fetchData('http://api.fundify-paris.fr/api/v1/user/register', JSON.stringify(payload))
                                 .then((result) => console.log(result))
                                 .catch((error) => {
                                     const toast = document.getElementById('toast');
