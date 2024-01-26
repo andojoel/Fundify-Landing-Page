@@ -22,7 +22,7 @@
                 body: payload
             })
             if(request.Accept || request.ok) return request.json();
-            else if(request.status == 400) {
+            else if(request.status >= 400 && 499 <= request.status) {
                 console.log("Error: ", request.status);
                 const toast = document.getElementById('toast');
                 toast.textContent = error;
