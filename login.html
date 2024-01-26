@@ -83,8 +83,8 @@
                             const cookie = "";
                             if(password){
                                 const payload = {
-                                    email: username,
-                                    password: password
+                                    "email": username,
+                                    "password": password
                                 };
 
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
