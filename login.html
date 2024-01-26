@@ -13,8 +13,8 @@
         async function fetchData(link, payload){
             request = await fetch(link, {
                 method: "POST",
-                mode: "no-cors",
                 headers: {
+                    "accept": "application/json",
                     "Content-Type": "application/json"
                 },
                 body: payload
