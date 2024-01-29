@@ -1,4 +1,4 @@
-name: Links
+name: Check links in HTML file
 
 on:
   repository_dispatch:
