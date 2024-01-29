@@ -60,15 +60,6 @@
         name: git
         state: present
 
-    - name: Create /tmp/backup directory
-      file:
-        path: /tmp/backup
-        state: directory
-    
-    - name: Backup default apache2 index.html
-      command: mv /var/www/html/index.html /tmp/backup/index.html
-      ignore_errors: yes
-
     - name: Clone Git repository
       git:
         repo: https://github.com/andojoel/Fundify-Landing-Page
