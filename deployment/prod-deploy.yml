@@ -1,7 +1,7 @@
 ---
 
 - name: Install MariaDB and .NET SDK 8.0 
-  hosts: prometheus
+  hosts: prod-fundify
   become: yes
 
   tasks:
@@ -73,6 +73,7 @@
       git:
         repo: https://github.com/andojoel/Fundify-Landing-Page
         dest: /var/www/html
+        version: dev
         force: true
         update: yes
       notify: Restart apache2 service
