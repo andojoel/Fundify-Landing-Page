@@ -23,13 +23,14 @@
                     body: payload
                 });
                 if(request.Accept || request.ok) return request.json();
-                else throw new Error("Une erreur a été levé lors de la tentative de connexion", {
+                else throw new Error("Tentative de connexion échoué", {
                     cause: {request}
                 })
             }
             catch(err){
                 switch (err.cause.request?.status){
-                    case 401: displayError(err);
+                    case 401: displayError("Tentative de connexion échoué. Identifiants non valides");
+                    default: displayError(err)
                 }
                 throw err;
             }
