@@ -11,7 +11,7 @@ async function fetchData(link, payload){
             body: payload
         });
         if(!(request.Accept || request.ok)){
-            throw new Error(request.json(), {
+            throw new Error(request.statusText, {
             cause: {request}
         })}
         return request.json();
@@ -21,7 +21,7 @@ async function fetchData(link, payload){
             case 401: 
                 displayError("Tentative de connexion échoué. Identifiants non valides"); 
                 break;
-            default: displayError(err)
+            default: displayError(err);
         }
         throw err;
     }
