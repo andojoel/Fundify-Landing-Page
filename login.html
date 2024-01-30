@@ -74,8 +74,8 @@
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
                                 .then((result) => console.log(result))
                                 .catch(err => {
-                                    console.log("Log",err.cause.requete?.status)
-                                    switch(err.cause.requete?.status){
+                                    console.log("Log",err.status)
+                                    switch(err.status){
                                         case 401:
                                             displayError("Identifiants non valides");
                                             break;
