@@ -22,13 +22,15 @@
                     headers: headers,
                     body: payload
                 });
-                if(request.Accept || request.ok) return request.json();
-                else throw new Error("Tentative de connexion échoué", {
+                if(!(request.Accept || request.ok)){
+                    throw new Error("Tentative de connexion échoué", {
                     cause: {request}
-                })
+                })}
+                return request.json();
             }
             catch(err){
                 switch (err.cause.request?.status){
+                    case 400: displayError("Tentative de connexion échoué 2.");
                     case 401: displayError("Tentative de connexion échoué. Identifiants non valides");
                     default: displayError(err)
                 }
