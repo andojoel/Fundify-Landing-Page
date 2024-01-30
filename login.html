@@ -30,9 +30,6 @@
             }
             catch(err){
                 switch (err.cause.request?.status){
-                    case 400: 
-                        displayError("Tentative de connexion échoué 2.");
-                        break;
                     case 401: 
                         displayError("Tentative de connexion échoué. Identifiants non valides"); 
                         break;
@@ -43,7 +40,6 @@
         }
 
         function displayError(text) {
-            console.log(text);
             const toast = document.getElementById('toast');
             toast.textContent = text;
             toast.style.display = "block";
