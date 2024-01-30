@@ -23,7 +23,7 @@
             }).catch(error => displayError(error)
             );
             if(request.Accept || request.ok) return request.json();
-            return JSON.parse(request.text().then(error => {throw new Error(error)}));
+            return request.text().then(error => {throw new Error(error.json())});
         }
 
         function displayError(text) {
