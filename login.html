@@ -96,7 +96,7 @@
 
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
                                 .then((result) => console.log(result))
-                                .catch((error) => displayError(error));
+                                .catch((error) => displayError(error.Error));
                             }
                         })
                     </script>
