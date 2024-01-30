@@ -17,12 +17,6 @@ async function fetchData(link, payload){
         return request.json();
     }
     catch(err){
-        switch (err.cause.request?.status){
-            case 401: 
-                displayError("Tentative de connexion échoué. Identifiants non valides"); 
-                break;
-            default: displayError(err);
-        }
         throw err;
     }
 }
