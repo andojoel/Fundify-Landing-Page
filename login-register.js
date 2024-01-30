@@ -11,13 +11,12 @@ async function fetchData(link, payload){
             body: payload
         });
         if(!(request.Accept || request.ok)){
-            throw new Error(request.json(), {
-            cause: {request}
+            throw new Error("Une erreur est survenue.", {
+                cause: {request}
         })}
         else return request.json();
     }
     catch(err){
-        console.log(err.body);
         throw err;
     }
 }
