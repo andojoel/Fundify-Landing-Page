@@ -23,13 +23,13 @@
             }).catch(error => displayError(error)
             );
             if(request.Accept || request.ok) return request.json();
-            throw new Error(request);
+            return request.text().then(error => {throw new Error(error)});
         }
 
         function displayError(text) {
             console.log("Test: ",text);
             const toast = document.getElementById('toast');
-            toast.textContent = text;
+            toast.textContent = "Une erreur ";
             toast.style.display = "block";
         }
     </script>
