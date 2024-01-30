@@ -17,7 +17,7 @@ async function fetchData(link, payload){
         else return request.json();
     }
     catch(err){
-        console.log(request.json());
+        console.log(request.clone().json());
         throw err;
     }
 }
