@@ -11,7 +11,7 @@ async function fetchData(link, payload){
             body: payload
         });
         if(!(request.Accept || request.ok)){
-            throw new Error(request, {
+            throw new Error(request.status + " - " + request.statusText, {
             cause: {request}
         })}
         return request.json();
