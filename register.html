@@ -74,7 +74,16 @@
                                 };
 
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/register', JSON.stringify(payload))
-                                .then((result) => console.log(result));
+                                .then((result) => console.log(result))
+                                .catch(err => {
+                                    switch(err.status){
+                                        case 400:
+                                            displayError("Identifiants non valides");
+                                            break;
+                                        default:
+                                            displayError(err);
+                                    }
+                                });
                             }
                         })
                     </script>
