@@ -11,25 +11,34 @@
     <title>Fundify Paris</title>
     <script>
         async function fetchData(link, payload){
-            let headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            headers.append('Accept', 'application/json');
+            try{
+                let headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/json');
 
-            request = await fetch(link, {
-                method: "POST",
-                mode:"cors",
-                headers: headers,
-                body: payload
-            }).catch(error => displayError(error)
-            );
-            if(request.Accept || request.ok) return request.json();
-            return request.text().then(error => {throw new Error(error)});
+                request = await fetch(link, {
+                    method: "POST",
+                    mode:"cors",
+                    headers: headers,
+                    body: payload
+                });
+                if(request.Accept || request.ok) return request.json();
+                else throw new Error("Une erreur a été levé lors de la tentative de connexion", {
+                    cause: {request}
+                })
+            }
+            catch(err){
+                switch (err.cause.request?.status){
+                    case 401: displayError(err);
+                }
+                throw err;
+            }
         }
 
         function displayError(text) {
             console.log(text);
             const toast = document.getElementById('toast');
-            toast.textContent = "Erreur " + text + ". Login " + text.detail;
+            toast.textContent = text;
             toast.style.display = "block";
         }
     </script>
@@ -95,8 +104,7 @@
                                 };
 
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
-                                .then((result) => console.log(result))
-                                .catch((error) => displayError(error.json()));
+                                .then((result) => console.log(result));
                             }
                         })
                     </script>
