@@ -20,7 +20,9 @@
                 mode:"cors",
                 headers: headers,
                 body: payload
-            })
+            }).catch(error => {
+                console.log(error)
+            });
             if(request.Accept || request.ok) return request.json();
             throw new Error(request);
         }
@@ -89,7 +91,7 @@
                                 fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
                                 .then((result) => console.log(result))
                                 .catch((error) => {
-                                    console.log(JSON.stringify(error));
+                                    console.log(error);
                                     const toast = document.getElementById('toast');
                                     toast.textContent = error;
                                     toast.style.display = "block";
