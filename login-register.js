@@ -17,7 +17,8 @@ async function fetchData(link, payload){
         return request.json();
     }
     catch(err){
-        throw err.cause.request?.body;
+        console.log(err);
+        throw err;
     }
 }
 
