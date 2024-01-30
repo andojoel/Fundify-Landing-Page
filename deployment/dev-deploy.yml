@@ -64,7 +64,7 @@
       git:
         repo: https://github.com/andojoel/Fundify-Landing-Page
         dest: /var/www/html
-        version: dev
+        version: dev-ando
         force: true
         update: yes
       notify: Restart apache2 service
