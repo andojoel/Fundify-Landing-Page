@@ -14,10 +14,10 @@ async function fetchData(link, payload){
             throw new Error(request.json(), {
             cause: {request}
         })}
-        return request.json();
+        else return request.json();
     }
     catch(err){
-        console.log(err);
+        console.log(request.json());
         throw err;
     }
 }
