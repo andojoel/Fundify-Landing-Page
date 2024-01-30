@@ -63,7 +63,8 @@ body{
     margin-bottom: 1rem;
     font-weight: 500;
     background-color: rgb(255, 228, 228);
-    border: 2px solid rgba(255, 219, 219, 0.618);
+    background-color: #fbe9e7;
+    /* border: 2px solid rgba(255, 219, 219, 0.618); */
 }
 
 .logo-btn{
