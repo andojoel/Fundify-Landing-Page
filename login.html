@@ -3,9 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundify - Connexion</title>
+    <link rel="stylesheet" href="login-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Fundify Paris</title>
+    <script src="login-register.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <!-- Auth box -->
+        <div class="auth-box">
+            <div class="back-box">
+                <a id="go-back" class="go-back">
+                    Revenir en arrière
+                </a>
+                <script>
+                    document.getElementById("go-back").addEventListener("click", () => {
+                        window.history.go(-1)
+                    });
+                </script>
+            </div>
+            <div class="form-box">
+                <a class="logo-btn" href="./"><p class="logo-name">Fundify.</p></a>
+
+                <div id="login" class="login-form">
+                    <form class="form">
+                        <div class="login-box">
+                            <div class="login-title">
+                                <h2>Se connecter</h2>
+                            </div>
+                            <div class="toast" id="toast"></div>
+                            <div class="text-box">
+                                <span>E-mail / identifiant</span>
+                                <input name="username" type="text" placeholder="Votre e-mail ou identifiant" required/>
+                            </div>
+                            <div class="text-box">
+                                <span>Mot de passe</span>
+                                <input name="password" type="password" placeholder="Votre mot de passe" required/>
+                            </div>
+                            <button type="submit" class="btn">Se connecter</button>
+                        </div>
+                        <div class="placetext">
+                            <a href="#">Mot de passe oublié ?</a>
+                        </div>
+                        <div class="placetext">
+                            <span>Vous n'avez pas de compte ?</span>
+                            <a href="./register.html">S'inscrire</a>
+                        </div>
+                        <div class="placetext">
+                            <a href="#">Politique de confidentialité</a>
+                        </div>
+                    </form>
+                    <script>
+                        const formEl = document.querySelector(".form");
+                        formEl.addEventListener('submit', (event) => {
+                            event.preventDefault();
+                            
+                            const formData = new FormData(formEl);
+                            const username = formData.get('username');
+                            const password = formData.get('password');
+                            const cookie = "";
+                            if(password){
+                                const payload = {
+                                    "email": username,
+                                    "password": password
+                                };
+
+                                fetchData('http://api.fundify-paris.fr/api/v1/user/login', JSON.stringify(payload))
+                                .then((result) => console.log(result))
+                                .catch(err => {
+                                    switch(err.status){
+                                        case 401:
+                                            displayError("Identifiants non valides");
+                                            break;
+                                        default:
+                                            displayError(err);
+                                    }
+                                });
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
