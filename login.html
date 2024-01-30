@@ -27,9 +27,9 @@
         }
 
         function displayError(text) {
-            console.log("Test: ",text);
+            console.log(text);
             const toast = document.getElementById('toast');
-            toast.textContent = "Erreur " + text.Error.type + ". Login " + text.detail;
+            toast.textContent = "Erreur " + text + ". Login " + text.detail;
             toast.style.display = "block";
         }
     </script>
