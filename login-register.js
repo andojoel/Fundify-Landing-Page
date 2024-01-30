@@ -22,7 +22,6 @@ async function fetchData(link, payload){
 }
 
 function displayError(text) {
-    console.log(text);
     const toast = document.getElementById('toast');
     toast.textContent = text;
     toast.style.display = "block";
