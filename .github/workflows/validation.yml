@@ -33,7 +33,7 @@ jobs:
           cat htmlhint_errors.txt >> $GITHUB_STEP_SUMMARY
 
       - name: Validate CSS
-        run: npm run stylelint -- --no-color -f github > stylelint_errors.txt 2>&1 || true
+        run: npm run stylelint -- --no-color > stylelint_errors.txt 2>&1 || true
 
       - name: Display Stylelint Errors
         run: |
