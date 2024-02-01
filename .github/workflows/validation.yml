@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Validate HTML
-        run: npm run htmlhint > npm run htmlhint > htmlhint_errors.txt 2>&1 || true
+        run: npm run htmlhint -- --no-color > htmlhint_errors.txt 2>&1 || true
 
       - name: Display HTMLHint Errors in Markdown
         run: |
@@ -33,7 +33,7 @@ jobs:
           cat htmlhint_errors.txt >> $GITHUB_STEP_SUMMARY
 
       - name: Validate CSS
-        run: npm run stylelint npm run stylelint > stylelint_errors.txt 2>&1 || true
+        run: npm run stylelint -- --no-color > stylelint_errors.txt 2>&1 || true
 
       - name: Display Stylelint Errors
         run: |
