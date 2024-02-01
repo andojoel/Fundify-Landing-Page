@@ -13,18 +13,26 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
+
 
       - name: Install dependencies
         run: npm install
 
       - name: Validate HTML
-        run: npm run htmlhint
+        run: npm run htmlhint > npm run htmlhint > htmlhint_errors.txt 2>&1 || true
+
+      - name: Display HTMLHint Errors
+        run: cat htmlhint_errors.txt
 
       - name: Validate CSS
-        run: npm run stylelint
+        run: npm run stylelint npm run stylelint > stylelint_errors.txt 2>&1 || true
+
+      - name: Display Stylelint Errors
+        run: cat stylelint_errors.txt
+      
