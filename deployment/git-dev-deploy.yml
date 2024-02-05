@@ -1,0 +1,42 @@
+---
+
+- name: Install and clone GIT repo on Apache Server
+  hosts: test-fundify
+  become: yes
+
+  tasks:
+
+    - name: Update APT package cache
+      apt:
+        update_cache: yes
+
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start and enable Apache2 service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+    - name: Install git
+      apt:
+        name: git
+        state: present
+
+    - name: Clone Git repository
+      git:
+        repo: https://github.com/andojoel/Fundify-Landing-Page
+        dest: /var/www/html
+        version: dev
+        force: true
+        update: yes
+      notify: Restart apache2 service
+
+  handlers:
+    - name: Restart apache2 service
+      service:
+        name: apache2
+        state: restarted
