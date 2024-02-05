@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Validate HTML
-        run: npm run htmlhint -- --nocolor > htmlhint_errors.txt 2>&1 || true
+        run: npm run htmlhint -- --nocolor --format markdown > htmlhint_errors.txt 2>&1 || true
 
       - name: Display HTMLHint Errors in Markdown
         run: |
